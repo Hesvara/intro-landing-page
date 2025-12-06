@@ -451,11 +451,18 @@
                 Early access members will help shape the future of caregiver support.
             </p>
             
-            <form id="waitlist-form">
+           <form name="waitlist" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                   <!-- Adding email form - elp -->
+                    <input type="hidden" name="form-name" value="waitlist">
+                    <p style="display: none;">
+                    <label>Don't fill this out: <input name="bot-field"></label>
+                    </p>
+                    <!-- End of added lines -->
                 <div class="form-group">
                     <input 
                         type="email" 
                         id="email" 
+                        name="email"
                         placeholder="Enter your email address" 
                         required 
                         aria-label="Email address"
