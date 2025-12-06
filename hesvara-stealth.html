@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesvara — Coming Soon</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap');
+        
+        :root {
+            --primary-green: #275317;
+            --dark-green: #002F03;
+            --accent-blue: #003060;
+            --accent-orange: #d97757;
+            --light-bg: #faf9f5;
+            --light-gray: #e8e6dc;
+            --mid-gray: #b0aea5;
+            --dark: #141413;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #f5f3ed 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Animated background elements */
+        .background-decoration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .background-decoration::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(39, 83, 23, 0.03) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .background-decoration::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 48, 96, 0.03) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+        
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+        
+        .logo {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--dark-green);
+            letter-spacing: 0.5px;
+        }
+        
+        .status-badge {
+            padding: 0.5rem 1.5rem;
+            background: rgba(39, 83, 23, 0.08);
+            border: 1px solid rgba(39, 83, 23, 0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--primary-green);
+            letter-spacing: 0.5px;
+        }
+        
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5% 6rem;
+        }
+        
+        /* Hero section */
+        .hero {
+            text-align: center;
+            margin-bottom: 6rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+        
+        .tagline {
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--dark-green);
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+        
+        h1 .highlight {
+            font-weight: 600;
+            color: var(--primary-green);
+            display: block;
+        }
+        
+        .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+        
+        /* Features grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .feature-card {
+            padding: 2.5rem 2rem;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(39, 83, 23, 0.1);
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(39, 83, 23, 0.3);
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .feature-card h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-green);
+            margin-bottom: 0.75rem;
+        }
+        
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--dark);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        /* Waitlist section */
+        .waitlist {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(39, 83, 23, 0.15);
+            border-radius: 16px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+        
+        .waitlist h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+        
+        .waitlist-description {
+            font-size: 1.05rem;
+            color: var(--dark);
+            opacity: 0.8;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        
+        .form-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        input[type="email"] {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            font-family: 'DM Sans', Arial, sans-serif;
+            font-size: 1rem;
+            border: 2px solid rgba(39, 83, 23, 0.2);
+            border-radius: 50px;
+            background: white;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        input[type="email"]:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(39, 83, 23, 0.1);
+        }
+        
+        button {
+            padding: 1rem 2.5rem;
+            font-family: 'DM Sans', Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary-green) 0%, #1a3b0f 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(39, 83, 23, 0.3);
+        }
+        
+        .privacy-note {
+            font-size: 0.85rem;
+            color: var(--mid-gray);
+            margin-top: 1.5rem;
+            line-height: 1.5;
+        }
+        
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 3rem 5% 2rem;
+            color: var(--mid-gray);
+            font-size: 0.9rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.2s forwards;
+        }
+        
+        .footer-link {
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            opacity: 0.7;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Success message */
+        .success-message {
+            display: none;
+            padding: 1rem;
+            background: rgba(39, 83, 23, 0.1);
+            border: 1px solid var(--primary-green);
+            border-radius: 8px;
+            color: var(--primary-green);
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.5rem 5%;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            .waitlist {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decoration"></div>
+    
+    <header class="header">
+        <div class="logo">Hesvara</div>
+        <div class="status-badge">Coming Soon</div>
+    </header>
+    
+    <main class="container">
+        <section class="hero">
+            <div class="tagline">Caregiver Assistant</div>
+            <h1>
+                Your time belongs
+                <span class="highlight">with them, not paperwork</span>
+            </h1>
+            <p class="subtitle">
+                An AI-powered advocacy and administration hub that organizes the endless tasks 
+                protecting your loved one's rights—so you can focus on what matters most: their care.
+            </p>
+        </section>
+        
+        <section class="features">
+            <div class="feature-card">
+                <span class="feature-icon">🗼</span>
+                <h3>Watchtower</h3>
+                <p>Never miss a deadline or coverage risk. Intelligent monitoring keeps you ahead of critical dates and potential gaps in care.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">📋</span>
+                <h3>CaseFile</h3>
+                <p>Every record, form, and document organized and accessible. No more searching through piles when you need proof.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">📝</span>
+                <h3>Daily Record</h3>
+                <p>Capture what really happens day-to-day. Build an evidence trail of behaviors, incidents, and patterns that matter.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">⚖️</span>
+                <h3>CaseMaker</h3>
+                <p>Transform your evidence into powerful letters, appeals, and requests. Professional advocacy at your fingertips.</p>
+            </div>
+        </section>
+        
+        <section class="waitlist">
+            <h2>Join the Waitlist</h2>
+            <p class="waitlist-description">
+                Be among the first to experience Hesvara when we launch. 
+                Early access members will help shape the future of caregiver support.
+            </p>
+            
+            <form id="waitlist-form">
+                <div class="form-group">
+                    <input 
+                        type="email" 
+                        id="email" 
+                        placeholder="Enter your email address" 
+                        required 
+                        aria-label="Email address"
+                    >
+                    <button type="submit">Get Early Access</button>
+                </div>
+                <div class="success-message" id="success-message">
+                    ✓ Thank you! We'll be in touch soon.
+                </div>
+            </form>
+            
+            <p class="privacy-note">
+                We respect your privacy. Your email will only be used for Hesvara updates 
+                and early access information. No spam, ever.
+            </p>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>
+            Hesvara Caregiver Assistant · A project by <a href="#" class="footer-link">Evaila LLC</a>
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            © 2025 · Designed for the families who fight every day
+        </p>
+    </footer>
+    
+    <script>
+        // Waitlist form handling
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const successMessage = document.getElementById('success-message');
+            
+            // In production, this would send to your backend/email service
+            console.log('Waitlist signup:', email);
+            
+            // Show success message
+            successMessage.classList.add('show');
+            
+            // Clear form
+            document.getElementById('email').value = '';
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+        });
+        
+        // Add smooth parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const decoration = document.querySelector('.background-decoration');
+            decoration.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
