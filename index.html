@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hesvara — Coming Soon</title>
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Hesvara — Caregiver Assistant">
+    <meta property="og:description" content="AI-powered advocacy and administration hub for family caregivers. Join the waitlist.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hesvara.com">
+    
+    <!-- Favicon (you'll want to add later) -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap');
         
@@ -150,9 +160,33 @@
             font-size: clamp(1.1rem, 2.5vw, 1.35rem);
             color: var(--dark);
             max-width: 700px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 2rem;
             line-height: 1.8;
             opacity: 0.85;
+        }
+        
+        /* Demo button */
+        .demo-button {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            font-family: 'DM Sans', Arial, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: transparent;
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-button:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 48, 96, 0.2);
         }
         
         /* Features grid */
@@ -378,6 +412,15 @@
                 font-size: 2.5rem;
             }
             
+            .demo-button {
+                width: 100%;
+                max-width: 300px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 3rem;
+            }
+            
             .features {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -416,6 +459,9 @@
                 An AI-powered advocacy and administration hub that organizes the endless tasks 
                 protecting your loved one's rights—so you can focus on what matters most: their care.
             </p>
+            <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="demo-button">
+                View the Demo
+            </a>
         </section>
         
         <section class="features">
@@ -451,26 +497,23 @@
                 Early access members will help shape the future of caregiver support.
             </p>
             
-           <form name="waitlist" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                   <!-- Adding email form - elp -->
-                    <input type="hidden" name="form-name" value="waitlist">
-                    <p style="display: none;">
+            <!-- Netlify form with hidden bot field and success redirect -->
+            <form name="waitlist" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <!-- Hidden fields for Netlify -->
+                <input type="hidden" name="form-name" value="waitlist">
+                <p style="display: none;">
                     <label>Don't fill this out: <input name="bot-field"></label>
-                    </p>
-                    <!-- End of added lines -->
+                </p>
+                
                 <div class="form-group">
                     <input 
                         type="email" 
-                        id="email" 
                         name="email"
                         placeholder="Enter your email address" 
                         required 
                         aria-label="Email address"
                     >
                     <button type="submit">Get Early Access</button>
-                </div>
-                <div class="success-message" id="success-message">
-                    ✓ Thank you! We'll be in touch soon.
                 </div>
             </form>
             
@@ -484,35 +527,13 @@
     <footer class="footer">
         <p>
             Hesvara Caregiver Assistant · Hesvara LLC
-        </p>    
+        </p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">
             © 2025 · We Handle the Busy Work So You Can Get Back to Caring
         </p>
     </footer>
     
     <script>
-        // Waitlist form handling
-        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const successMessage = document.getElementById('success-message');
-            
-            // In production, this would send to your backend/email service
-            console.log('Waitlist signup:', email);
-            
-            // Show success message
-            successMessage.classList.add('show');
-            
-            // Clear form
-            document.getElementById('email').value = '';
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 5000);
-        });
-        
         // Add smooth parallax effect on scroll
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
