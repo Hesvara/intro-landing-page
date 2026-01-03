@@ -255,6 +255,72 @@
         }
         
         /* Waitlist section */
+        .benefits {
+            text-align: center;
+            margin-bottom: 6rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+        
+        .benefits h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 300;
+            color: var(--dark-green);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .benefits-intro {
+            font-size: 1.1rem;
+            color: var(--dark);
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            border: 1px solid rgba(39, 83, 23, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.6);
+            border-color: rgba(39, 83, 23, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .benefit-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+        
+        .benefit-text {
+            font-size: 0.95rem;
+            color: var(--dark);
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* Waitlist section */
         .waitlist {
             max-width: 600px;
             margin: 0 auto;
@@ -457,7 +523,7 @@
             </h1>
             <p class="subtitle">
                 An AI-powered advocacy and administration hub that organizes the endless tasks 
-                protecting your loved one's rights so you can focus on what matters most: their care.
+                protecting your loved one's rights—so you can focus on what matters most: their care.
             </p>
             <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="demo-button">
                 View the Demo
@@ -484,9 +550,54 @@
             </div>
             
             <div class="feature-card">
+                <span class="feature-icon">🧠</span>
+                <h3>AI Insights</h3>
+                <p>Surface patterns, predict risks, and get intelligent suggestions that connect evidence across all your data.</p>
+            </div>
+            
+            <div class="feature-card">
                 <span class="feature-icon">⚖️</span>
                 <h3>CaseMaker</h3>
                 <p>Transform your evidence into powerful letters, appeals, and requests. Professional advocacy at your fingertips.</p>
+            </div>
+        </section>
+        
+        <section class="benefits">
+            <h2>We Handle the Busy Work So You Can Get Back to Caring</h2>
+            <p class="benefits-intro">
+                Hesvara handles the administrative complexity of caregiving so you can spend more time caring and less time on paperwork.
+            </p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="benefit-icon">⏰</span>
+                    <span class="benefit-text">Never miss critical deadlines or coverage risks</span>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">📊</span>
+                    <span class="benefit-text">Build stronger advocacy cases with organized evidence</span>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔍</span>
+                    <span class="benefit-text">Spot patterns others miss in day-to-day care</span>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">✍️</span>
+                    <span class="benefit-text">Generate professional letters, appeals, and requests</span>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">📁</span>
+                    <span class="benefit-text">Keep every record and form at your fingertips</span>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">💚</span>
+                    <span class="benefit-text">Reduce overwhelm, reclaim your energy</span>
+                </div>
             </div>
         </section>
         
