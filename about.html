@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Hesvara Caregiver Assistant</title>
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="About Hesvara - Caregiver Assistant">
+    <meta property="og:description" content="Learn about Hesvara, the AI-powered caregiver advocacy platform, and the team building it.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hesvara.com/about">
+    
+    <!-- SEO Meta -->
+    <meta name="description" content="Hesvara is an AI-powered caregiver assistant built by Emily Lewis-Pinnell. Learn about our mission to help the 63 million family caregivers in America manage the administrative burden of caregiving.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Source+Sans+3:wght@400;600;700&display=swap');
+        
+        :root {
+            /* Hesvara Brand Colors */
+            --evergreen: #2E5A45;
+            --deep-forest: #1F3A2E;
+            --slate-ink: #2C3A4B;
+            --brass: #B08B3E;
+            --airy: #FAF9F5;
+            --gradient-off-white: #F5F3ED;
+            --soft-neutral: #E8E6DC;
+            --secondary-text: #6F6D66;
+            --ink: #1B1F23;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--airy) 0%, var(--gradient-off-white) 100%);
+            color: var(--ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Animated background elements */
+        .background-decoration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .background-decoration::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(46, 90, 69, 0.04) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .background-decoration::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(44, 58, 75, 0.04) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: relative;
+            z-index: 10;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+        
+        .logo {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--deep-forest);
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--slate-ink);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+        
+        .nav-link:hover {
+            color: var(--evergreen);
+        }
+        
+        .nav-link.active {
+            color: var(--evergreen);
+        }
+        
+        .nav-cta {
+            padding: 0.6rem 1.5rem;
+            background: var(--evergreen);
+            color: var(--airy);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+        
+        .nav-cta:hover {
+            background: var(--deep-forest);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(46, 90, 69, 0.25);
+        }
+        
+        .status-badge {
+            padding: 0.4rem 1rem;
+            background: rgba(46, 90, 69, 0.08);
+            border: 1px solid rgba(46, 90, 69, 0.2);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--evergreen);
+            letter-spacing: 0.5px;
+        }
+        
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--slate-ink);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 5% 5rem;
+        }
+        
+        /* Page header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+        
+        .page-header h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--deep-forest);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .page-header .lead {
+            font-size: 1.15rem;
+            color: var(--ink);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.75;
+            opacity: 0.9;
+        }
+        
+        /* Section styling */
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.5s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.7s; }
+        .section:nth-child(6) { animation-delay: 0.8s; }
+        
+        .section h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--soft-neutral);
+        }
+        
+        .section p {
+            font-size: 1.05rem;
+            color: var(--ink);
+            line-height: 1.75;
+            opacity: 0.9;
+            margin-bottom: 1.25rem;
+        }
+        
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Content card */
+        .content-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 90, 69, 0.12);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Team section */
+        .team-card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2.5rem;
+            align-items: start;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 90, 69, 0.12);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+        
+        .team-photo {
+            text-align: center;
+        }
+        
+        .team-photo-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+        
+        .team-photo-placeholder {
+            width: 180px;
+            height: 180px;
+            background: var(--soft-neutral);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--secondary-text);
+        }
+        
+        .team-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            margin-bottom: 0.25rem;
+        }
+        
+        .team-title {
+            font-size: 0.95rem;
+            color: var(--evergreen);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .team-links {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        
+        .team-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            background: var(--soft-neutral);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--slate-ink);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .team-link:hover {
+            background: var(--slate-ink);
+            color: white;
+        }
+        
+        .team-bio {
+            /* Bio content on the right */
+        }
+        
+        .team-bio h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            margin-bottom: 1rem;
+        }
+        
+        .team-bio p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--ink);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .team-bio ul {
+            list-style: none;
+            margin-top: 1.25rem;
+        }
+        
+        .team-bio li {
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            color: var(--ink);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+        
+        .team-bio li::before {
+            content: "•";
+            color: var(--brass);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        /* Feature list */
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            padding: 1.15rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(46, 90, 69, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-content h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            margin-bottom: 0.35rem;
+        }
+        
+        .feature-content p {
+            font-size: 0.9rem;
+            color: var(--ink);
+            opacity: 0.85;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+        
+        /* Industry context */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 1.75rem 1.25rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(46, 90, 69, 0.1);
+        }
+        
+        .stat-number {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--evergreen);
+            margin-bottom: 0.35rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            line-height: 1.4;
+        }
+        
+        /* Status section */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        
+        .status-item {
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(46, 90, 69, 0.1);
+        }
+        
+        .status-item h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--secondary-text);
+            margin-bottom: 0.5rem;
+        }
+        
+        .status-item p {
+            font-size: 1rem;
+            color: var(--ink);
+            margin-bottom: 0;
+        }
+        
+        .status-badge-inline {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(46, 90, 69, 0.1);
+            color: var(--evergreen);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 90, 69, 0.15);
+            border-radius: 16px;
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+        
+        .cta-section h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--deep-forest);
+            margin-bottom: 1rem;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .cta-section p {
+            font-size: 1.05rem;
+            color: var(--ink);
+            opacity: 0.85;
+            max-width: 550px;
+            margin: 0 auto 1.75rem;
+            line-height: 1.65;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .primary-button {
+            display: inline-block;
+            padding: 0.95rem 2.25rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--evergreen);
+            color: var(--airy);
+            border: 2px solid var(--evergreen);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+        
+        .primary-button:hover {
+            background: var(--deep-forest);
+            border-color: var(--deep-forest);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(46, 90, 69, 0.25);
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            padding: 0.95rem 2.25rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            background: transparent;
+            color: var(--slate-ink);
+            border: 2px solid var(--slate-ink);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+        
+        .secondary-button:hover {
+            background: var(--slate-ink);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(44, 58, 75, 0.2);
+        }
+        
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 3rem 5% 2rem;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards;
+        }
+        
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-link {
+            color: var(--slate-ink);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--evergreen);
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .team-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .team-bio {
+                text-align: left;
+            }
+            
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.25rem 5%;
+            }
+            
+            .nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--airy);
+                flex-direction: column;
+                padding: 1.5rem 5%;
+                gap: 1.25rem;
+                border-bottom: 1px solid var(--soft-neutral);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            }
+            
+            .nav.active {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-card, .team-card {
+                padding: 1.75rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .primary-button, .secondary-button {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decoration"></div>
+    
+    <header class="header">
+        <a href="/" class="logo">Hesvara</a>
+        
+        <nav class="nav" id="nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/about.html" class="nav-link active">About</a>
+            <span class="status-badge">Beta</span>
+            <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="nav-cta">View Demo</a>
+        </nav>
+        
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    
+    <main class="container">
+        <div class="page-header">
+            <h1>About Hesvara</h1>
+            <p class="lead">
+                An AI-powered advocacy and administration hub helping family caregivers 
+                organize documents, track deadlines, and create professional advocacy materials.
+            </p>
+        </div>
+        
+        <!-- Business Description -->
+        <section class="section">
+            <h2>What We Do</h2>
+            <div class="content-card">
+                <p>
+                    <strong>Hesvara</strong> is a caregiver advocacy platform designed to address the overwhelming 
+                    administrative burden faced by America's 63 million family caregivers. We combine intelligent 
+                    document management, proactive deadline tracking, and AI-powered advocacy drafting into a 
+                    single, easy-to-use application.
+                </p>
+                <p>
+                    Our platform serves caregivers navigating complex systems like IEP (Individualized Education Program) 
+                    processes, Medicaid applications, insurance appeals, and benefits coordination. Instead of juggling 
+                    spreadsheets, email folders, and handwritten notes, caregivers can use Hesvara to keep everything 
+                    organized and ready when it matters most.
+                </p>
+                <p>
+                    <strong>Our mission:</strong> Give caregivers back the time and energy they need to focus on 
+                    what matters most-caring for their loved ones.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Industry Context -->
+        <section class="section">
+            <h2>The Problem We're Solving</h2>
+            <div class="content-card">
+                <p>
+                    Family caregivers in the United States provide an estimated $600 billion in unpaid care annually. 
+                    Beyond the physical and emotional demands, caregivers face an enormous administrative burden: 
+                    tracking deadlines, organizing medical records, coordinating with multiple agencies, and advocating 
+                    for their loved one's rights.
+                </p>
+                
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">63M</div>
+                        <div class="stat-label">Family caregivers in the US</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">~13</div>
+                        <div class="stat-label">Hours/month on admin tasks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">26%</div>
+                        <div class="stat-label">Need help managing paperwork or navigating eligibility</div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 1.5rem;">
+                    Existing solutions address pieces of this problem-document storage here, calendar reminders there-but 
+                    none provide the integrated, caregiver-focused experience needed to truly reduce the administrative burden. 
+                    Hesvara fills this gap with purpose-built tools designed specifically for family caregiving scenarios.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Product Details -->
+        <section class="section">
+            <h2>Our Platform</h2>
+            <div class="content-card">
+                <p>
+                    Hesvara consists of five interconnected modules, each addressing a specific aspect of caregiver 
+                    administration. Together, they create a comprehensive system that reduces overwhelm and enables 
+                    confident advocacy.
+                </p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">🗼</span>
+                        <div class="feature-content">
+                            <h4>Watchtower</h4>
+                            <p>Proactive deadline monitoring with intelligent alerts for IEP meetings, insurance renewals, Medicaid recertifications, and more.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-icon">📋</span>
+                        <div class="feature-content">
+                            <h4>CaseFile</h4>
+                            <p>Intelligent document management with automatic categorization, secure storage, and instant search across all records.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-icon">📝</span>
+                        <div class="feature-content">
+                            <h4>Care Log</h4>
+                            <p>Daily behavior and incident tracking that builds an evidence trail over time, surfacing patterns that inform advocacy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-icon">⚖️</span>
+                        <div class="feature-content">
+                            <h4>CaseMaker</h4>
+                            <p>AI-powered drafting of professional advocacy letters, insurance appeals, IEP requests, and benefits applications.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-icon">🧠</span>
+                        <div class="feature-content">
+                            <h4>AI Insights</h4>
+                            <p>Surface patterns, predict risks, and get intelligent suggestions that connect evidence across all your data.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Development Status -->
+        <section class="section">
+            <h2>Development Status</h2>
+            <div class="content-card">
+                <p>
+                    Hesvara is currently in <strong>active beta development</strong>, with a working demo available 
+                    for review. We are building toward a production launch in 2026.
+                </p>
+                
+                <div class="status-grid">
+                    <div class="status-item">
+                        <h4>Current Stage</h4>
+                        <p><span class="status-badge-inline">Beta Development</span></p>
+                    </div>
+                    <div class="status-item">
+                        <h4>Demo Available</h4>
+                        <p>Live at <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" style="color: var(--evergreen);">demo.hesvara.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team -->
+        <section class="section">
+            <h2>The Team</h2>
+            <div class="team-card">
+                <div class="team-photo">
+                    <img src="/emily-headshot.jpg" alt="Emily Lewis-Pinnell" class="team-photo-img">
+                    <div class="team-name">Emily Lewis-Pinnell</div>
+                    <div class="team-title">Founder & CEO</div>
+                    <div class="team-links">
+                        <a href="https://www.linkedin.com/in/emilylewispinnell/" target="_blank" rel="noopener noreferrer" class="team-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            LinkedIn
+                        </a>
+                        <a href="https://emilylewispinnell.com" target="_blank" rel="noopener noreferrer" class="team-link">
+                            🌐 Website
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="team-bio">
+                    <h3>Background</h3>
+                    <p>
+                        Emily is a technology executive with deep experience leading enterprise transformation, 
+                        AI strategy, and product development. She has built and led cloud, data, and AI practices 
+                        at NTT DATA and Caylent, and advised Fortune 500 companies on technology adoption strategy. 
+                        Her career spans software development for clients including Macy's, HP, Verizon, and Visa, 
+                        as well as product management and marketing at Dell. Emily is a Forbes Technology Council 
+                        member and sought-after thought leader on AI adoption.
+                    </p>
+                    <p>
+                        Hesvara was born from Emily's personal experience navigating the healthcare and educational 
+                        systems as a family caregiver. After years of managing IEPs, insurance appeals, and medical 
+                        documentation for her own family, she recognized that the administrative burden caregivers 
+                        face is both overwhelming and solvable with the right technology.
+                    </p>
+                    
+                    <ul>
+                        <li>Founded and leads Evaila, an AI adoption consulting firm</li>
+                        <li>Forbes Technology Council member and healthcare nonprofit board director</li>
+                        <li>MBA from The Wharton School; BS from Stanford University</li>
+                        <li>Personal experience as a family caregiver navigating complex care systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>See Hesvara in Action</h2>
+            <p>
+                Explore our live demo to see how Hesvara organizes documents, tracks deadlines, 
+                and helps caregivers stay on top of their advocacy.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="primary-button">
+                    View Live Demo
+                </a>
+                <a href="/" class="secondary-button">
+                    Back to Home
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/" class="footer-link">Home</a>
+            <a href="/about.html" class="footer-link">About</a>
+            <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="footer-link">Demo</a>
+        </div>
+        <p>
+            Hesvara Caregiver Assistant · Hesvara LLC
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            © 2025 · We Handle the Busy Work So You Can Get Back to Caring
+        </p>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const nav = document.getElementById('nav');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Add smooth parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const decoration = document.querySelector('.background-decoration');
+            decoration.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
