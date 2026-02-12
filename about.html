@@ -160,7 +160,29 @@
             color: var(--evergreen);
             letter-spacing: 0.5px;
         }
-        
+
+        .nav-signin {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: transparent;
+            color: var(--slate-ink);
+            border: 2px solid var(--slate-ink);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-signin:hover {
+            background: var(--slate-ink);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44, 58, 75, 0.2);
+        }
+
         /* Mobile menu toggle */
         .mobile-menu-toggle {
             display: none;
@@ -716,8 +738,10 @@
         <nav class="nav" id="nav">
             <a href="/" class="nav-link">Home</a>
             <a href="/about.html" class="nav-link active">About</a>
+            <a href="/privacy.html" class="nav-link">Privacy</a>
             <span class="status-badge">Beta</span>
             <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="nav-cta">View Demo</a>
+            <a href="https://app.hesvara.com" class="nav-signin">Sign In</a>
         </nav>
         
         <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
@@ -937,7 +961,9 @@
         <div class="footer-links">
             <a href="/" class="footer-link">Home</a>
             <a href="/about.html" class="footer-link">About</a>
+            <a href="/privacy.html" class="footer-link">Privacy</a>
             <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="footer-link">Demo</a>
+            <a href="https://app.hesvara.com" class="footer-link">Sign In</a>
         </div>
         <p>
             Hesvara Caregiver Assistant · Hesvara LLC
