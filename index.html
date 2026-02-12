@@ -156,7 +156,29 @@
             color: var(--evergreen);
             letter-spacing: 0.5px;
         }
-        
+
+        .nav-signin {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: transparent;
+            color: var(--slate-ink);
+            border: 2px solid var(--slate-ink);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-signin:hover {
+            background: var(--slate-ink);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44, 58, 75, 0.2);
+        }
+
         /* Mobile menu toggle */
         .mobile-menu-toggle {
             display: none;
@@ -233,6 +255,12 @@
             justify-content: center;
             flex-wrap: wrap;
             margin-bottom: 2rem;
+        }
+
+        .hero-buttons .primary-button,
+        .hero-buttons .secondary-button {
+            min-width: 160px;
+            text-align: center;
         }
         
         .primary-button {
@@ -787,8 +815,10 @@
         <nav class="nav" id="nav">
             <a href="/" class="nav-link">Home</a>
             <a href="/about.html" class="nav-link">About</a>
-            <a href="#waitlist" class="status-badge">Beta</a>
-            <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="nav-cta">View Demo</a>
+            <a href="/privacy.html" class="nav-link">Privacy</a>
+            <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="nav-link">View Demo</a>
+            <a href="#waitlist" class="nav-cta">Beta Access</a>
+            <a href="https://app.hesvara.com" class="nav-signin">Sign In</a>
         </nav>
         
         <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
@@ -810,11 +840,14 @@
                 protecting your loved one's rights—so you can focus on what matters most: their care.
             </p>
             <div class="hero-buttons">
-                <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="primary-button">
-                    View Live Demo
+                <a href="#waitlist" class="primary-button">
+                    Beta Access
                 </a>
-                <a href="#waitlist" class="secondary-button">
-                    Request Access
+                <a href="https://app.hesvara.com" class="secondary-button">
+                    Sign In
+                </a>
+                <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="secondary-button">
+                    View Demo
                 </a>
             </div>
         </section>
@@ -958,8 +991,11 @@
             </form>
             
             <p class="privacy-note">
-                We respect your privacy. Your email will only be used for Hesvara updates 
+                We respect your privacy. Your email will only be used for Hesvara updates
                 and early access information. No spam, ever.
+            </p>
+            <p class="privacy-note" style="margin-top: 0.75rem;">
+                Already have beta access? <a href="https://app.hesvara.com" style="color: var(--evergreen); text-decoration: none; font-weight: 600;">Sign in &rarr;</a>
             </p>
         </section>
     </main>
@@ -968,13 +1004,15 @@
         <div class="footer-links">
             <a href="/" class="footer-link">Home</a>
             <a href="/about.html" class="footer-link">About</a>
+            <a href="/privacy.html" class="footer-link">Privacy</a>
             <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="footer-link">Demo</a>
+            <a href="https://app.hesvara.com" class="footer-link">Sign In</a>
         </div>
         <p>
             Hesvara Caregiver Assistant · Hesvara LLC
         </p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">
-            © 2025 · We Handle the Busy Work So You Can Get Back to Caring
+            © 2026 · We Handle the Busy Work So You Can Get Back to Caring
         </p>
     </footer>
     

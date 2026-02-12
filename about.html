@@ -160,7 +160,29 @@
             color: var(--evergreen);
             letter-spacing: 0.5px;
         }
-        
+
+        .nav-signin {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: transparent;
+            color: var(--slate-ink);
+            border: 2px solid var(--slate-ink);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-signin:hover {
+            background: var(--slate-ink);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44, 58, 75, 0.2);
+        }
+
         /* Mobile menu toggle */
         .mobile-menu-toggle {
             display: none;
@@ -716,8 +738,10 @@
         <nav class="nav" id="nav">
             <a href="/" class="nav-link">Home</a>
             <a href="/about.html" class="nav-link active">About</a>
-            <span class="status-badge">Beta</span>
-            <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="nav-cta">View Demo</a>
+            <a href="/privacy.html" class="nav-link">Privacy</a>
+            <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="nav-link">View Demo</a>
+            <a href="/#waitlist" class="nav-cta">Beta Access</a>
+            <a href="https://app.hesvara.com" class="nav-signin">Sign In</a>
         </nav>
         
         <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
@@ -852,19 +876,28 @@
             <h2>Development Status</h2>
             <div class="content-card">
                 <p>
-                    Hesvara is currently in <strong>active beta development</strong>, with a working demo available 
-                    for review. We are building toward a production launch in 2026.
+                    Hesvara is now in <strong>beta testing</strong> and actively accepting beta users.
+                    Try the platform today and help us shape the future of caregiver advocacy tools.
                 </p>
-                
+
                 <div class="status-grid">
                     <div class="status-item">
                         <h4>Current Stage</h4>
-                        <p><span class="status-badge-inline">Beta Development</span></p>
+                        <p><span class="status-badge-inline">Beta Testing</span></p>
                     </div>
                     <div class="status-item">
                         <h4>Demo Available</h4>
                         <p>Live at <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" style="color: var(--evergreen);">demo.hesvara.com</a></p>
                     </div>
+                </div>
+
+                <div class="cta-buttons" style="margin-top: 2rem;">
+                    <a href="/#waitlist" class="primary-button">
+                        Request Beta Access
+                    </a>
+                    <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="secondary-button">
+                        View Demo
+                    </a>
                 </div>
             </div>
         </section>
@@ -919,11 +952,14 @@
         <section class="cta-section">
             <h2>See Hesvara in Action</h2>
             <p>
-                Explore our live demo to see how Hesvara organizes documents, tracks deadlines, 
+                Explore our live demo to see how Hesvara organizes documents, tracks deadlines,
                 and helps caregivers stay on top of their advocacy.
             </p>
             <div class="cta-buttons">
-                <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="primary-button">
+                <a href="/#waitlist" class="primary-button">
+                    Request Beta Access
+                </a>
+                <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="secondary-button">
                     View Live Demo
                 </a>
                 <a href="/" class="secondary-button">
@@ -937,13 +973,15 @@
         <div class="footer-links">
             <a href="/" class="footer-link">Home</a>
             <a href="/about.html" class="footer-link">About</a>
+            <a href="/privacy.html" class="footer-link">Privacy</a>
             <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="footer-link">Demo</a>
+            <a href="https://app.hesvara.com" class="footer-link">Sign In</a>
         </div>
         <p>
             Hesvara Caregiver Assistant · Hesvara LLC
         </p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">
-            © 2025 · We Handle the Busy Work So You Can Get Back to Caring
+            © 2026 · We Handle the Busy Work So You Can Get Back to Caring
         </p>
     </footer>
     

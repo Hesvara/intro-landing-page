@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Statement - Hesvara Caregiver Assistant</title>
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Hesvara Privacy Statement">
+    <meta property="og:description" content="Consumer Health Data Privacy Policy for the Hesvara caregiver advocacy platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hesvara.com/privacy">
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Hesvara Privacy Statement - Consumer Health Data Privacy Policy. Learn how we protect your information with healthcare-grade security standards.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Source+Sans+3:wght@400;600;700&display=swap');
+
+        :root {
+            /* Hesvara Brand Colors */
+            --evergreen: #2E5A45;
+            --deep-forest: #1F3A2E;
+            --slate-ink: #2C3A4B;
+            --brass: #B08B3E;
+            --airy: #FAF9F5;
+            --gradient-off-white: #F5F3ED;
+            --soft-neutral: #E8E6DC;
+            --secondary-text: #6F6D66;
+            --ink: #1B1F23;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--airy) 0%, var(--gradient-off-white) 100%);
+            color: var(--ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background elements */
+        .background-decoration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .background-decoration::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(46, 90, 69, 0.04) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .background-decoration::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(44, 58, 75, 0.04) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: relative;
+            z-index: 10;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--deep-forest);
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--slate-ink);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-link:hover {
+            color: var(--evergreen);
+        }
+
+        .nav-link.active {
+            color: var(--evergreen);
+        }
+
+        .nav-cta {
+            padding: 0.6rem 1.5rem;
+            background: var(--evergreen);
+            color: var(--airy);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-cta:hover {
+            background: var(--deep-forest);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(46, 90, 69, 0.25);
+        }
+
+        .status-badge {
+            padding: 0.4rem 1rem;
+            background: rgba(46, 90, 69, 0.08);
+            border: 1px solid rgba(46, 90, 69, 0.2);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--evergreen);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-signin {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: transparent;
+            color: var(--slate-ink);
+            border: 2px solid var(--slate-ink);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-signin:hover {
+            background: var(--slate-ink);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44, 58, 75, 0.2);
+        }
+
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--slate-ink);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 5% 5rem;
+        }
+
+        /* Page header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .page-header h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--deep-forest);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .page-header .lead {
+            font-size: 1.15rem;
+            color: var(--ink);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.75;
+            opacity: 0.9;
+        }
+
+        .page-header .effective-date {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            margin-top: 0.75rem;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.5s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.7s; }
+        .section:nth-child(6) { animation-delay: 0.8s; }
+        .section:nth-child(7) { animation-delay: 0.85s; }
+        .section:nth-child(8) { animation-delay: 0.9s; }
+        .section:nth-child(9) { animation-delay: 0.95s; }
+        .section:nth-child(10) { animation-delay: 1.0s; }
+        .section:nth-child(11) { animation-delay: 1.05s; }
+        .section:nth-child(12) { animation-delay: 1.1s; }
+        .section:nth-child(13) { animation-delay: 1.15s; }
+
+        .section h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--evergreen);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--soft-neutral);
+        }
+
+        .section h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .section h3:first-child {
+            margin-top: 0;
+        }
+
+        .section p {
+            font-size: 15px;
+            color: var(--ink);
+            line-height: 1.75;
+            opacity: 0.9;
+            margin-bottom: 1.25rem;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Content card */
+        .content-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 90, 69, 0.12);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Brass notice box */
+        .notice-box {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--brass);
+            border-radius: 12px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .notice-box .notice-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--brass);
+            margin-bottom: 0.75rem;
+        }
+
+        .notice-box p {
+            font-size: 15px;
+            color: var(--ink);
+            line-height: 1.75;
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+
+        /* Bullet lists */
+        .section ul {
+            list-style: none;
+            margin: 1rem 0 1.25rem;
+            padding: 0;
+        }
+
+        .section li {
+            padding: 0.4rem 0;
+            font-size: 15px;
+            color: var(--ink);
+            line-height: 1.75;
+            opacity: 0.9;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .section li::before {
+            content: "\2022";
+            color: var(--brass);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section .bold-statement {
+            font-weight: 700;
+            opacity: 1;
+        }
+
+        /* Definition-style items */
+        .definition-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .definition-item strong {
+            color: var(--ink);
+        }
+
+        /* Contact section */
+        .contact-email {
+            color: var(--evergreen);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 90, 69, 0.15);
+            border-radius: 16px;
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.2s forwards;
+        }
+
+        .cta-section h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--deep-forest);
+            margin-bottom: 1rem;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .cta-section p {
+            font-size: 1.05rem;
+            color: var(--ink);
+            opacity: 0.85;
+            max-width: 550px;
+            margin: 0 auto 1.75rem;
+            line-height: 1.65;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .primary-button {
+            display: inline-block;
+            padding: 0.95rem 2.25rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--evergreen);
+            color: var(--airy);
+            border: 2px solid var(--evergreen);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .primary-button:hover {
+            background: var(--deep-forest);
+            border-color: var(--deep-forest);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(46, 90, 69, 0.25);
+        }
+
+        .secondary-button {
+            display: inline-block;
+            padding: 0.95rem 2.25rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            background: transparent;
+            color: var(--slate-ink);
+            border: 2px solid var(--slate-ink);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .secondary-button:hover {
+            background: var(--slate-ink);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(44, 58, 75, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 3rem 5% 2rem;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-link {
+            color: var(--slate-ink);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--evergreen);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.25rem 5%;
+            }
+
+            .nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--airy);
+                flex-direction: column;
+                padding: 1.5rem 5%;
+                gap: 1.25rem;
+                border-bottom: 1px solid var(--soft-neutral);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            }
+
+            .nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .content-card, .notice-box {
+                padding: 1.75rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .primary-button, .secondary-button {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decoration"></div>
+
+    <header class="header">
+        <a href="/" class="logo">Hesvara</a>
+
+        <nav class="nav" id="nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/about.html" class="nav-link">About</a>
+            <a href="/privacy.html" class="nav-link active">Privacy</a>
+            <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="nav-link">View Demo</a>
+            <a href="/#waitlist" class="nav-cta">Beta Access</a>
+            <a href="https://app.hesvara.com" class="nav-signin">Sign In</a>
+        </nav>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>Hesvara Privacy Statement</h1>
+            <p class="lead">Consumer Health Data Privacy Policy</p>
+            <p class="effective-date">Effective Date: January 2026</p>
+        </div>
+
+        <!-- Beta Notice -->
+        <div class="notice-box" style="opacity: 0; animation: fadeInUp 1s ease 0.35s forwards;">
+            <div class="notice-title">Beta Notice</div>
+            <p>
+                Hesvara is currently in beta. We are actively refining our platform and security measures based on user feedback. This privacy statement will be updated as we approach general availability. We will notify you of any material changes.
+            </p>
+        </div>
+
+        <!-- Section 1: Our Commitment to You -->
+        <section class="section">
+            <h2>Our Commitment to You</h2>
+            <div class="content-card">
+                <p>
+                    We understand you're entrusting Hesvara with sensitive information about your loved one's care. That trust is not something we take lightly. This statement explains how we protect your data and respect your privacy—written in plain language, not legal jargon.
+                </p>
+                <p>
+                    Hesvara is built with healthcare-grade security standards. We implement technical and administrative safeguards comparable to those required of healthcare providers, because your health information deserves that level of protection.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2: What Information We Collect -->
+        <section class="section">
+            <h2>What Information We Collect</h2>
+            <div class="content-card">
+                <p>
+                    Hesvara collects only the information necessary to help you organize care and advocate for your loved one. All consumer health data is collected directly from you through your use of the Hesvara platform. We do not collect health data from third-party sources.
+                </p>
+
+                <div class="definition-item">
+                    <h3>Account Information</h3>
+                    <p>Your name, email address, and password to create and secure your account.</p>
+                </div>
+
+                <div class="definition-item">
+                    <h3>Care Recipient Information</h3>
+                    <p>Basic details about the person you're caring for, such as their name, date of birth, insurance information, and state of residence—used to track relevant deadlines and eligibility.</p>
+                </div>
+
+                <div class="definition-item">
+                    <h3>Documents You Upload</h3>
+                    <p>Medical records, insurance paperwork, school documents, and other files you choose to store in your CaseFile.</p>
+                </div>
+
+                <div class="definition-item">
+                    <h3>Daily Records</h3>
+                    <p>Notes, observations, and logs you create about daily care activities, symptoms, or incidents.</p>
+                </div>
+
+                <div class="definition-item">
+                    <h3>Generated Documents</h3>
+                    <p>Letters, appeals, and other advocacy documents created through CaseMaker based on your information.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: How We Use Your Information -->
+        <section class="section">
+            <h2>How We Use Your Information</h2>
+            <div class="content-card">
+                <p>We use your information solely to provide the Hesvara service:</p>
+
+                <ul>
+                    <li>Organizing and making your documents searchable</li>
+                    <li>Monitoring deadlines, transitions, and eligibility requirements</li>
+                    <li>Generating advocacy documents tailored to your situation</li>
+                    <li>Identifying patterns or trends in your daily records that may require attention</li>
+                    <li>Sending you alerts and reminders about upcoming deadlines</li>
+                </ul>
+
+                <p class="bold-statement">
+                    We do not sell your data. We do not use your information for advertising or marketing. We do not share your data with third parties except as described below.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 4: How We Protect Your Information -->
+        <section class="section">
+            <h2>How We Protect Your Information</h2>
+            <div class="content-card">
+                <p>We implement healthcare-grade security measures:</p>
+
+                <h3>Encryption</h3>
+                <p>Your data is encrypted both when it travels to our servers (in transit) and when it's stored (at rest). Even if data were somehow accessed, it would be unreadable without the encryption keys.</p>
+
+                <h3>Access Controls</h3>
+                <p>Only you (and any caregivers you authorize) can access your CaseFile. Our team cannot view your personal health information unless you specifically request support that requires it—and even then, access is logged and limited.</p>
+
+                <h3>Authentication</h3>
+                <p>We require strong passwords and encourage two-factor authentication to protect your account from unauthorized access.</p>
+
+                <h3>Audit Logging</h3>
+                <p>We maintain detailed logs of who accesses data and when, allowing us to detect and investigate any suspicious activity.</p>
+
+                <h3>Data Backup &amp; Recovery</h3>
+                <p>Your CaseFile is regularly backed up to secure, encrypted storage. We have disaster recovery procedures in place to ensure your data isn't lost.</p>
+
+                <h3>U.S.-Based Infrastructure</h3>
+                <p>All data is stored on servers located in the United States, within data centers that meet healthcare-grade compliance standards.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Consent & Authorization -->
+        <section class="section">
+            <h2>Consent &amp; Authorization</h2>
+            <div class="content-card">
+                <p>Because Hesvara handles sensitive health information, we take consent seriously:</p>
+
+                <h3>If you are the patient</h3>
+                <p>You control your own data. You decide what to upload and who can access it.</p>
+
+                <h3>If you are caring for a minor child or legal dependent</h3>
+                <p>As their parent or legal guardian, you have authority to manage their health information.</p>
+
+                <h3>If you are caring for an adult</h3>
+                <p>You should have the patient's consent to use Hesvara on their behalf. During onboarding, we'll ask you to confirm you have authorization to manage their care information. If you have healthcare power of attorney or legal guardianship, you may act as their personal representative.</p>
+
+                <p>The patient (or their authorized representative) can revoke consent and request data deletion at any time.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: We Only Use What's Needed -->
+        <section class="section">
+            <h2>We Only Use What's Needed</h2>
+            <div class="content-card">
+                <p>
+                    Following the principle of data minimization, our AI features only access and include information relevant to the specific task. For example, when CaseMaker drafts an appeal letter, it includes only the medical details necessary to support that specific request—not your entire health history.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 7: When We Share Information -->
+        <section class="section">
+            <h2>When We Share Information</h2>
+            <div class="content-card">
+                <p>We share your information only in these limited circumstances:</p>
+
+                <h3>At Your Direction</h3>
+                <p>When you export documents, download letters, or explicitly share information with healthcare providers, schools, or insurers.</p>
+
+                <h3>With Authorized Caregivers</h3>
+                <p>If you invite additional family members or caregivers to access a CaseFile, they will see the information you've authorized them to view.</p>
+
+                <h3>Service Providers</h3>
+                <p>We use the following categories of service providers: (1) cloud infrastructure for secure data storage, and (2) AI processing services for document analysis and generation. Each provider is selected for their compliance with healthcare-grade security standards and is bound by data protection agreements requiring equivalent security controls. We do not share your health data with any other categories of third parties.</p>
+
+                <h3>Legal Requirements</h3>
+                <p>If required by law, we may disclose information—but we will notify you unless legally prohibited from doing so.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Your Rights -->
+        <section class="section">
+            <h2>Your Rights</h2>
+            <div class="content-card">
+                <p>You have control over your information:</p>
+
+                <h3>Access</h3>
+                <p>You can view and download all information in your CaseFile at any time.</p>
+
+                <h3>Correction</h3>
+                <p>You can update or correct any information you've entered.</p>
+
+                <h3>Withdraw Consent</h3>
+                <p>You may withdraw consent to future collection of your health data at any time while retaining access to previously stored data.</p>
+
+                <h3>Deletion</h3>
+                <p>You can request full deletion of your account and all associated data. We will securely erase your information, though some may be retained as required by law or for legitimate business purposes (such as fraud prevention).</p>
+
+                <h3>Revoke Caregiver Access</h3>
+                <p>If a caregiver relationship changes, you can remove their access to your CaseFile at any time.</p>
+            </div>
+        </section>
+
+        <!-- Section 9: If Something Goes Wrong -->
+        <section class="section">
+            <h2>If Something Goes Wrong</h2>
+            <div class="content-card">
+                <p>
+                    While we work hard to prevent security incidents, we have procedures in place if a breach occurs. If we discover unauthorized access to your health data, we will notify affected users within 60 days of discovering the breach, investigate the incident, and take steps to prevent future occurrences. Our commitment is transparency: you will know if your information has been compromised.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 10: Beta-Specific Considerations -->
+        <section class="section">
+            <h2>Beta-Specific Considerations</h2>
+            <div class="notice-box">
+                <p>The following items are specific to our beta period and may change:</p>
+
+                <ul>
+                    <li>Security features are being continuously enhanced based on testing and feedback.</li>
+                    <li>Some features may be modified or removed as we refine the platform.</li>
+                    <li>We may reach out to beta users for feedback on privacy and security experiences.</li>
+                    <li>Data retention policies will be finalized before general availability.</li>
+                    <li>Additional third-party integrations may be added, each with appropriate privacy safeguards.</li>
+                </ul>
+
+                <p>We will notify beta users of any material changes to this privacy statement before they take effect.</p>
+            </div>
+        </section>
+
+        <!-- Section 11: Questions or Concerns -->
+        <section class="section">
+            <h2>Questions or Concerns</h2>
+            <div class="content-card">
+                <p>
+                    Your privacy matters to us. If you have questions about this statement or how we handle your information, please contact us:
+                </p>
+                <p>
+                    Email: <a href="mailto:privacy@hesvara.com" class="contact-email">privacy@hesvara.com</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 12: Updates to This Statement -->
+        <section class="section">
+            <h2>Updates to This Statement</h2>
+            <div class="content-card">
+                <p>
+                    We may update this privacy statement as our service evolves or as regulations change. We will post any changes here with an updated effective date. For significant changes, we will notify you directly via email or within the application.
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>Your Secure Casefile and Trusted Administrative Assistant</h2>
+            <p>
+                Have questions about your privacy or want to learn more about Hesvara?
+            </p>
+            <div class="cta-buttons">
+                <a href="/" class="primary-button">
+                    Back to Home
+                </a>
+                <a href="/about.html" class="secondary-button">
+                    About Hesvara
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/" class="footer-link">Home</a>
+            <a href="/about.html" class="footer-link">About</a>
+            <a href="/privacy.html" class="footer-link">Privacy</a>
+            <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="footer-link">Demo</a>
+            <a href="https://app.hesvara.com" class="footer-link">Sign In</a>
+        </div>
+        <p>
+            Hesvara Caregiver Assistant &middot; Hesvara LLC
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            &copy; 2026 &middot; We Handle the Busy Work So You Can Get Back to Caring
+        </p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const nav = document.getElementById('nav');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+
+        // Add smooth parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const decoration = document.querySelector('.background-decoration');
+            decoration.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
