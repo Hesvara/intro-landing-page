@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beta Application - Hesvara Caregiver Assistant</title>
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Apply for Hesvara Beta Access">
+    <meta property="og:description" content="Join the Hesvara beta program and help shape the future of caregiver advocacy tools. Free access, founder pricing, and a direct line to the team.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hesvara.com/beta">
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Apply for Hesvara beta access. Get free early access to AI-powered caregiver advocacy tools including Watchtower, CaseFile, Daily Record, and CaseMaker.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Source+Sans+3:wght@400;600;700&display=swap');
+
+        :root {
+            /* Hesvara Brand Colors */
+            --evergreen: #2E5A45;
+            --deep-forest: #1F3A2E;
+            --slate-ink: #2C3A4B;
+            --brass: #B08B3E;
+            --airy: #FAF9F5;
+            --gradient-off-white: #F5F3ED;
+            --soft-neutral: #E8E6DC;
+            --secondary-text: #6F6D66;
+            --ink: #1B1F23;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--airy) 0%, var(--gradient-off-white) 100%);
+            color: var(--ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background elements */
+        .background-decoration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .background-decoration::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(46, 90, 69, 0.04) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .background-decoration::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(44, 58, 75, 0.04) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: relative;
+            z-index: 10;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--deep-forest);
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--slate-ink);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-link:hover {
+            color: var(--evergreen);
+        }
+
+        .nav-link.active {
+            color: var(--evergreen);
+        }
+
+        .nav-cta {
+            padding: 0.6rem 1.5rem;
+            background: var(--evergreen);
+            color: var(--airy);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-cta:hover {
+            background: var(--deep-forest);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(46, 90, 69, 0.25);
+        }
+
+        .nav-cta.active {
+            background: var(--deep-forest);
+        }
+
+        .nav-signin {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: transparent;
+            color: var(--slate-ink);
+            border: 2px solid var(--slate-ink);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-signin:hover {
+            background: var(--slate-ink);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44, 58, 75, 0.2);
+        }
+
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--slate-ink);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 5% 5rem;
+        }
+
+        /* Hero section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero-content h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(2rem, 4.5vw, 2.75rem);
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--deep-forest);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.1rem;
+            color: var(--ink);
+            opacity: 0.85;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content .primary-button {
+            display: inline-block;
+            padding: 0.95rem 2.25rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--evergreen);
+            color: var(--airy);
+            border: 2px solid var(--evergreen);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-content .primary-button:hover {
+            background: var(--deep-forest);
+            border-color: var(--deep-forest);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(46, 90, 69, 0.25);
+        }
+
+        /* Card stack visual */
+        .card-stack {
+            position: relative;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stack-card {
+            position: absolute;
+            width: 240px;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 90, 69, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease;
+        }
+
+        .stack-card:nth-child(1) {
+            transform: rotate(-6deg) translate(-20px, 10px);
+            z-index: 1;
+        }
+
+        .stack-card:nth-child(2) {
+            transform: rotate(0deg) translate(0, -10px);
+            z-index: 2;
+        }
+
+        .stack-card:nth-child(3) {
+            transform: rotate(5deg) translate(20px, 15px);
+            z-index: 1;
+        }
+
+        .stack-card-icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stack-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            margin-bottom: 0.35rem;
+        }
+
+        .stack-card p {
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+            line-height: 1.5;
+        }
+
+        /* Value exchange section */
+        .value-exchange {
+            margin-bottom: 5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        .value-exchange .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .value-exchange .section-header h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 400;
+            color: var(--deep-forest);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .value-exchange .section-header p {
+            font-size: 1.05rem;
+            color: var(--secondary-text);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .value-column {
+            padding: 2.5rem;
+            border-radius: 12px;
+        }
+
+        .value-column.get {
+            background: rgba(46, 90, 69, 0.05);
+            border: 1px solid rgba(46, 90, 69, 0.15);
+        }
+
+        .value-column.ask {
+            background: rgba(44, 58, 75, 0.05);
+            border: 1px solid rgba(44, 58, 75, 0.15);
+        }
+
+        .value-column h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .value-column.get h3 {
+            color: var(--evergreen);
+        }
+
+        .value-column.ask h3 {
+            color: var(--slate-ink);
+        }
+
+        .value-column ul {
+            list-style: none;
+        }
+
+        .value-column li {
+            padding: 0.65rem 0;
+            font-size: 0.95rem;
+            color: var(--ink);
+            opacity: 0.9;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .value-column.get li::before {
+            content: "\2713";
+            color: var(--evergreen);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .value-column.ask li::before {
+            content: "\2022";
+            color: var(--brass);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Components overview */
+        .components-overview {
+            margin-bottom: 5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+        }
+
+        .components-overview .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .components-overview .section-header h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 400;
+            color: var(--deep-forest);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .components-overview .section-header p {
+            font-size: 1.05rem;
+            color: var(--secondary-text);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .component-card {
+            padding: 2.25rem 2rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 90, 69, 0.1);
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .component-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--evergreen), var(--slate-ink));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .component-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+            border-color: rgba(46, 90, 69, 0.25);
+        }
+
+        .component-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .component-card .card-icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.85rem;
+            display: block;
+        }
+
+        .component-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            margin-bottom: 0.65rem;
+        }
+
+        .component-card p {
+            font-size: 0.95rem;
+            color: var(--ink);
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        /* Application form section */
+        .form-section {
+            max-width: 680px;
+            margin: 0 auto 4rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .form-section .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-section .section-header h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 400;
+            color: var(--deep-forest);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .form-section .section-header p {
+            font-size: 1.05rem;
+            color: var(--secondary-text);
+            line-height: 1.7;
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 90, 69, 0.15);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-field {
+            margin-bottom: 1rem;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--slate-ink);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.2px;
+        }
+
+        .form-field input,
+        .form-field textarea,
+        .form-field select {
+            width: 100%;
+            padding: 0.85rem 1.15rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 1rem;
+            border: 2px solid rgba(46, 90, 69, 0.2);
+            border-radius: 8px;
+            background: white;
+            outline: none;
+            transition: all 0.3s ease;
+            color: var(--ink);
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus,
+        .form-field select:focus {
+            border-color: var(--evergreen);
+            box-shadow: 0 0 0 3px rgba(46, 90, 69, 0.1);
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-field select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%232C3A4B' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            background: var(--evergreen);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            background: var(--deep-forest);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 90, 69, 0.25);
+        }
+
+        /* Founder quote */
+        .founder-quote {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(46, 90, 69, 0.04);
+            border-left: 3px solid var(--evergreen);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .founder-quote blockquote {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--deep-forest);
+            line-height: 1.65;
+            margin-bottom: 0.75rem;
+        }
+
+        .founder-quote .attribution {
+            font-family: 'Source Sans 3', Arial, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+        }
+
+        /* Trust bar */
+        .trust-bar {
+            text-align: center;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 90, 69, 0.12);
+            border-radius: 16px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.1s forwards;
+        }
+
+        .trust-bar h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            margin-bottom: 1.25rem;
+        }
+
+        .trust-items {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--ink);
+            opacity: 0.9;
+        }
+
+        .trust-item .trust-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 3rem 5% 2rem;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.3s forwards;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-link {
+            color: var(--slate-ink);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--evergreen);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .card-stack {
+                height: 260px;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.25rem 5%;
+            }
+
+            .nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--airy);
+                flex-direction: column;
+                padding: 1.5rem 5%;
+                gap: 1.25rem;
+                border-bottom: 1px solid var(--soft-neutral);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            }
+
+            .nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-card {
+                padding: 1.75rem;
+            }
+
+            .components-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .trust-items {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decoration"></div>
+
+    <header class="header">
+        <a href="/" class="logo">Hesvara</a>
+
+        <nav class="nav" id="nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/about.html" class="nav-link">About</a>
+            <a href="/privacy.html" class="nav-link">Privacy</a>
+            <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="nav-link">View Demo</a>
+            <a href="/beta.html" class="nav-cta active">Beta Access</a>
+            <a href="https://app.hesvara.com" class="nav-signin">Sign In</a>
+        </nav>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>You shouldn't need a law degree to get your loved one the care they deserve.</h1>
+                <p class="subtitle">
+                    Hesvara is an AI-powered advocacy hub that helps family caregivers organize documents,
+                    track deadlines, and draft professional letters. We're looking for beta testers to help
+                    us build the right tool.
+                </p>
+                <a href="#apply" class="primary-button">Apply for Beta Access</a>
+            </div>
+
+            <div class="card-stack">
+                <div class="stack-card">
+                    <span class="stack-card-icon">🗼</span>
+                    <h4>Watchtower</h4>
+                    <p>Never miss a critical deadline or coverage risk</p>
+                </div>
+                <div class="stack-card">
+                    <span class="stack-card-icon">📋</span>
+                    <h4>CaseFile</h4>
+                    <p>Every record organized and instantly searchable</p>
+                </div>
+                <div class="stack-card">
+                    <span class="stack-card-icon">⚖️</span>
+                    <h4>CaseMaker</h4>
+                    <p>AI-drafted appeals and advocacy letters</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Exchange -->
+        <section class="value-exchange">
+            <div class="section-header">
+                <h2>A Fair Exchange</h2>
+                <p>We're building Hesvara with real caregivers, not for them. Here's the deal.</p>
+            </div>
+
+            <div class="value-grid">
+                <div class="value-column get">
+                    <h3>What You'll Get</h3>
+                    <ul>
+                        <li>Free access to the full platform during beta</li>
+                        <li>Direct line to the founder and development team</li>
+                        <li>Founding member pricing when we launch</li>
+                        <li>A real voice in shaping the product roadmap</li>
+                    </ul>
+                </div>
+
+                <div class="value-column ask">
+                    <h3>What We Ask</h3>
+                    <ul>
+                        <li>Upload your real documents so we can test with real-world data</li>
+                        <li>Use the platform actively for 2-4 weeks</li>
+                        <li>Share honest feedback on what works and what doesn't</li>
+                        <li>Keep beta features confidential until public launch</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components Overview -->
+        <section class="components-overview">
+            <div class="section-header">
+                <h2>What You'll Be Testing</h2>
+                <p>Four core components designed to handle the administrative side of caregiving.</p>
+            </div>
+
+            <div class="components-grid">
+                <div class="component-card">
+                    <span class="card-icon">🗼</span>
+                    <h3>Watchtower</h3>
+                    <p>Proactive deadline monitoring with intelligent alerts for IEP meetings, insurance renewals, and coverage risks before they become emergencies.</p>
+                </div>
+
+                <div class="component-card">
+                    <span class="card-icon">📋</span>
+                    <h3>CaseFile</h3>
+                    <p>Intelligent document management with automatic categorization, secure storage, and instant search across all your records.</p>
+                </div>
+
+                <div class="component-card">
+                    <span class="card-icon">📝</span>
+                    <h3>Daily Record</h3>
+                    <p>Capture daily behaviors, incidents, and patterns to build an evidence trail that strengthens your advocacy over time.</p>
+                </div>
+
+                <div class="component-card">
+                    <span class="card-icon">⚖️</span>
+                    <h3>CaseMaker</h3>
+                    <p>AI-generated professional advocacy letters, insurance appeals, IEP requests, and benefits applications from your evidence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section class="form-section" id="apply">
+            <div class="section-header">
+                <h2>Apply for Beta Access</h2>
+                <p>Tell us a bit about yourself and your caregiving situation. We review every application personally.</p>
+            </div>
+
+            <div class="form-card">
+                <form name="beta-application" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="beta-application">
+                    <p style="display: none;">
+                        <label>Don't fill this out: <input name="bot-field"></label>
+                    </p>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="first_name">First Name *</label>
+                            <input type="text" id="first_name" name="first_name" required placeholder="Your first name">
+                        </div>
+                        <div class="form-field">
+                            <label for="last_name">Last Name *</label>
+                            <input type="text" id="last_name" name="last_name" required placeholder="Your last name">
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="care_for">Who do you provide care for?</label>
+                        <input type="text" id="care_for" name="care_for" placeholder="e.g., My 8-year-old son with an IEP">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="challenge">What's your biggest administrative challenge?</label>
+                        <textarea id="challenge" name="challenge" placeholder="Tell us about the paperwork, deadlines, or advocacy tasks that take up your time..."></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="referral">How did you hear about Hesvara?</label>
+                        <select id="referral" name="referral">
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="search">Search engine</option>
+                            <option value="social">Social media</option>
+                            <option value="friend">Friend or family member</option>
+                            <option value="caregiver-group">Caregiver support group</option>
+                            <option value="professional">Healthcare or education professional</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="form-submit">Submit Application</button>
+                </form>
+
+                <div class="founder-quote">
+                    <blockquote>
+                        "I built Hesvara after years managing IEPs, insurance appeals, and medical documentation for my own family. If you're in the beta, consider this an open invitation: tell us what works, what doesn't, and what you wish existed."
+                    </blockquote>
+                    <div class="attribution">— Emily Lewis-Pinnell, Founder</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Bar -->
+        <section class="trust-bar">
+            <h3>Your Data Is Safe With Us</h3>
+            <div class="trust-items">
+                <div class="trust-item">
+                    <span class="trust-icon">🔒</span>
+                    <span>Healthcare-grade encryption</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">🇺🇸</span>
+                    <span>U.S.-based servers</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">🚫</span>
+                    <span>We never sell your data</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">🛡️</span>
+                    <span>You control access</span>
+                </div>
+            </div>
+            <p style="margin-top: 1.25rem; font-size: 0.9rem; color: var(--secondary-text);">
+                Read our full <a href="/privacy.html" style="color: var(--evergreen); text-decoration: none; font-weight: 600;">Privacy Statement</a> for details on how we protect your information.
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/" class="footer-link">Home</a>
+            <a href="/about.html" class="footer-link">About</a>
+            <a href="/privacy.html" class="footer-link">Privacy</a>
+            <a href="https://demo.hesvara.com/dashboard" target="_blank" rel="noopener noreferrer" class="footer-link">Demo</a>
+            <a href="https://app.hesvara.com" class="footer-link">Sign In</a>
+        </div>
+        <p>
+            Hesvara Caregiver Assistant &middot; Hesvara LLC
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            &copy; 2026 &middot; We Handle the Busy Work So You Can Get Back to Caring
+        </p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const nav = document.getElementById('nav');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+
+        // Add smooth parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const decoration = document.querySelector('.background-decoration');
+            decoration.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
