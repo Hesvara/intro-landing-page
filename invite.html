@@ -319,7 +319,6 @@
     }
 
     /* TRUST LINE */
-    .trust-line {
 
     /* HOW IT WORKS STEPS */
     .how-it-works-section {
@@ -332,6 +331,10 @@
       display: flex;
       gap: 16px;
       align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .step:last-child {
+      margin-bottom: 0;
     }
     .step-number {
       width: 32px;
@@ -358,12 +361,6 @@
       color: var(--secondary-text);
       line-height: 1.6;
     }
-    .step-connector {
-      width: 2px;
-      height: 20px;
-      background: var(--soft-neutral);
-      margin-left: 15px;
-    }
     .security-note {
       display: flex;
       gap: 14px;
@@ -380,10 +377,6 @@
       color: var(--ink);
       display: block;
       margin-bottom: 2px;
-    }
-    .security-note-icon {
-      font-size: 18px;
-      margin-top: 1px;
     }
 
     /* TRUST LINE */
@@ -493,7 +486,7 @@
 
     <!-- FORM -->
     <div id="form-section">
-      <h2 class="form-heading">Accept your invitation</h2>
+      <h2 class="form-heading">Join the beta</h2>
       <p class="form-sub">Takes about 60 seconds. You'll get access immediately.</p>
 
       <form id="invite-form">
@@ -530,17 +523,18 @@
         </div>
 
         <div class="form-group">
-          <label for="time-spent">How many hours per week do you spend on caregiving admin? <span class="optional">(optional)</span></label>
+          <label for="time-spent">About how much time do you spend on caregiving admin each month? <span class="optional">(optional)</span></label>
           <select id="time-spent" name="time_spent">
             <option value="">Select…</option>
-            <option value="1-3">1–3 hours</option>
-            <option value="4-7">4–7 hours</option>
-            <option value="8-14">8–14 hours</option>
-            <option value="15+">15+ hours</option>
+            <option value="<2hrs">Less than 2 hours/month</option>
+            <option value="2-6hrs">2–6 hours/month</option>
+            <option value="7-15hrs">7–15 hours/month</option>
+            <option value="16-30hrs">16–30 hours/month</option>
+            <option value="31+hrs">31+ hours/month</option>
           </select>
         </div>
 
-        <button type="submit" class="form-submit">Accept Invitation</button>
+        <button type="submit" class="form-submit">Join the Beta</button>
 
         <p class="form-footer">
           Built with your privacy in mind. Your data is stored securely and never shared.
@@ -569,11 +563,10 @@
         <div class="step">
           <div class="step-number">1</div>
           <div class="step-content">
-            <h3>Accept your invitation</h3>
+            <h3>Join the beta</h3>
             <p>Fill out the short form above. You'll get immediate access — no waiting, no approval step.</p>
           </div>
         </div>
-        <div class="step-connector"></div>
         <div class="step">
           <div class="step-number">2</div>
           <div class="step-content">
@@ -581,7 +574,6 @@
             <p>Because you'll be uploading real healthcare documents, we take security seriously. You'll set up your account with email verification and multi-factor authentication — an extra step, but an important one to keep your information safe.</p>
           </div>
         </div>
-        <div class="step-connector"></div>
         <div class="step">
           <div class="step-number">3</div>
           <div class="step-content">
@@ -589,18 +581,16 @@
             <p>Start with 3–5 documents you already have — insurance letters, medical records, IEPs, denial notices. This is what makes the beta meaningful and lets you see Hesvara working with your real situation.</p>
           </div>
         </div>
-        <div class="step-connector"></div>
         <div class="step">
           <div class="step-number">4</div>
           <div class="step-content">
-            <h3>Explore and tell us what you think</h3>
-            <p>Try the tools. See what's useful, notice what's missing, flag what's confusing. At the end of the beta period, we'll ask for a brief survey or a short call — your honest feedback is the whole point.</p>
+            <h3>Explore and share your thoughts</h3>
+            <p>Try the tools. See what's useful, notice what's missing, flag what's confusing. Use the Beta Feedback page inside the app to share your thoughts throughout the beta — your honest feedback is the whole point.</p>
           </div>
         </div>
       </div>
 
       <div class="security-note">
-        <div class="security-note-icon">🔒</div>
         <div>
           <strong>A note on the extra security steps.</strong> We know creating accounts can feel like a hassle — but caregiving documents contain some of the most sensitive information there is. The authentication steps exist to make sure no one but you can access your data. It takes a few extra minutes upfront so you never have to worry about it after.
         </div>
@@ -630,7 +620,7 @@
 
       const btn = document.querySelector('.form-submit');
       const originalText = btn.textContent;
-      btn.textContent = 'Accepting…';
+      btn.textContent = 'Joining…';
       btn.disabled = true;
 
       const payload = {
