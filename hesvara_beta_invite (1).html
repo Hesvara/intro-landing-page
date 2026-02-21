@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're Invited — Hesvara Beta</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep-forest: #1F3A2E;
+      --evergreen: #2E5A45;
+      --slate-ink: #2C3A4B;
+      --brass: #B08B3E;
+      --ink: #1B1F23;
+      --airy: #FAF9F5;
+      --gradient-off: #F5F3ED;
+      --soft-neutral: #E8E6DC;
+      --secondary-text: #6F6D66;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', Arial, sans-serif;
+      color: var(--ink);
+      background: var(--airy);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* SIMPLE NAV */
+    .nav {
+      padding: 24px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .nav-logo {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 300;
+      font-size: 26px;
+      color: var(--deep-forest);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    /* MAIN CONTENT — centered single column */
+    .content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 32px 60px;
+    }
+
+    /* INVITATION BADGE */
+    .invite-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--brass);
+      background: rgba(176, 139, 62, 0.07);
+      border: 1px solid rgba(176, 139, 62, 0.18);
+      padding: 6px 14px;
+      border-radius: 6px;
+      margin-bottom: 28px;
+    }
+    .invite-badge::before {
+      content: '✉';
+      font-size: 14px;
+    }
+
+    /* HEADLINE */
+    h1 {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 300;
+      font-size: 38px;
+      line-height: 1.12;
+      color: var(--deep-forest);
+      margin-bottom: 20px;
+    }
+
+    .intro {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--secondary-text);
+      margin-bottom: 12px;
+    }
+
+    /* FOUNDER NOTE */
+    .founder-note {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin: 32px 0;
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--soft-neutral);
+      border-radius: 12px;
+    }
+    .founder-avatar {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 50%;
+      background: var(--evergreen);
+      color: var(--airy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+    .founder-text {
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.65;
+      font-style: italic;
+    }
+    .founder-name {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--secondary-text);
+      font-size: 13px;
+      display: block;
+      margin-top: 8px;
+    }
+
+    /* QUICK DETAILS */
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin: 36px 0;
+    }
+    .detail-card {
+      background: var(--white);
+      border: 1px solid var(--soft-neutral);
+      border-radius: 10px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .detail-icon {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .detail-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--deep-forest);
+      margin-bottom: 2px;
+    }
+    .detail-desc {
+      font-size: 12px;
+      color: var(--secondary-text);
+      line-height: 1.4;
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--soft-neutral);
+      margin: 36px 0;
+    }
+
+    /* FORM */
+    .form-heading {
+      font-family: 'Source Sans 3', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--deep-forest);
+      margin-bottom: 6px;
+    }
+    .form-sub {
+      font-size: 14px;
+      color: var(--secondary-text);
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 5px;
+    }
+    .form-group .optional {
+      font-weight: 400;
+      color: var(--secondary-text);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      font-family: 'Source Sans 3', Arial, sans-serif;
+      font-size: 15px;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--soft-neutral);
+      border-radius: 8px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--evergreen);
+      box-shadow: 0 0 0 3px rgba(46, 90, 69, 0.08);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 72px;
+    }
+    .form-group select { cursor: pointer; }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--evergreen);
+      color: var(--airy);
+      font-family: 'Source Sans 3', Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.12s ease;
+      margin-top: 4px;
+    }
+    .form-submit:hover {
+      background: var(--deep-forest);
+      transform: translateY(-1px);
+    }
+    .form-submit:disabled {
+      background: var(--deep-forest);
+      cursor: default;
+      transform: none;
+    }
+
+    .form-footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--secondary-text);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+    .form-footer a {
+      color: var(--slate-ink);
+      text-decoration: underline;
+    }
+
+    /* SUCCESS STATE */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .success-state.visible {
+      display: block;
+    }
+    .success-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(46, 90, 69, 0.08);
+      color: var(--evergreen);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin: 0 auto 20px;
+    }
+    .success-state h2 {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 300;
+      font-size: 28px;
+      color: var(--deep-forest);
+      margin-bottom: 12px;
+    }
+    .success-state p {
+      font-size: 15px;
+      color: var(--secondary-text);
+      line-height: 1.65;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .success-state .next-step {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 28px;
+      background: var(--evergreen);
+      color: var(--airy);
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .success-state .next-step:hover {
+      background: var(--deep-forest);
+    }
+    .success-sub {
+      font-size: 13px;
+      color: var(--secondary-text);
+      margin-top: 14px;
+    }
+
+    /* TRUST LINE */
+    .trust-line {
+
+    /* HOW IT WORKS STEPS */
+    .how-it-works-section {
+      margin-top: 36px;
+    }
+    .steps {
+      margin: 24px 0 28px;
+    }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .step-number {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      border-radius: 50%;
+      background: var(--evergreen);
+      color: var(--airy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .step-content h3 {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .step-content p {
+      font-size: 14px;
+      color: var(--secondary-text);
+      line-height: 1.6;
+    }
+    .step-connector {
+      width: 2px;
+      height: 20px;
+      background: var(--soft-neutral);
+      margin-left: 15px;
+    }
+    .security-note {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px 20px;
+      background: rgba(46, 90, 69, 0.04);
+      border: 1px solid rgba(46, 90, 69, 0.10);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--secondary-text);
+      line-height: 1.6;
+    }
+    .security-note strong {
+      color: var(--ink);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .security-note-icon {
+      font-size: 18px;
+      margin-top: 1px;
+    }
+
+    /* TRUST LINE */
+    .trust-line {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--soft-neutral);
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--secondary-text);
+    }
+    .trust-item span.icon {
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 24px 32px 40px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--secondary-text);
+    }
+    footer a {
+      color: var(--slate-ink);
+      text-decoration: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .content { padding: 32px 20px 48px; }
+      h1 { font-size: 30px; }
+      .details { grid-template-columns: 1fr; gap: 10px; }
+      .detail-card { display: flex; align-items: center; gap: 12px; text-align: left; padding: 14px 16px; }
+      .detail-icon { margin-bottom: 0; font-size: 18px; }
+      .form-row { grid-template-columns: 1fr; }
+      .trust-line { flex-direction: column; align-items: center; gap: 12px; }
+      .nav { padding: 20px 20px; }
+    }
+
+    /* FADE IN */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .content { animation: fadeIn 0.6s ease-out; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="https://hesvara.com" class="nav-logo">Hesvara</a>
+  </nav>
+
+  <main class="content">
+
+    <div class="invite-badge">Personal Invitation</div>
+
+    <h1>You've been invited to try Hesvara before anyone else.</h1>
+
+    <p class="intro">Someone who knows you thought this might help. Hesvara organizes healthcare documents, tracks critical deadlines, and drafts advocacy letters — the administrative work that eats into your time as a caregiver.</p>
+
+    <p class="intro">This is a small, private beta. We're not looking for thousands of users — we're looking for a few dozen caregivers who will try it with real paperwork and tell us what actually works.</p>
+
+    <div class="founder-note">
+      <div class="founder-avatar">ELP</div>
+      <div>
+        <span class="founder-text">"I built this because I was spending more time on insurance appeals and paperwork than being present for my daughter. If you know that feeling, I'd really value having you in this group."</span>
+        <span class="founder-name">Emily Lewis-Pinnell, Founder & Caregiver</span>
+      </div>
+    </div>
+
+    <div class="details">
+      <div class="detail-card">
+        <div class="detail-icon">🔓</div>
+        <div>
+          <div class="detail-label">Free</div>
+          <div class="detail-desc">Full access, no cost during beta</div>
+        </div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon">🔒</div>
+        <div>
+          <div class="detail-label">Private</div>
+          <div class="detail-desc">Built with your privacy in mind</div>
+        </div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon">💬</div>
+        <div>
+          <div class="detail-label">Your voice</div>
+          <div class="detail-desc">Your feedback shapes the product</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- FORM -->
+    <div id="form-section">
+      <h2 class="form-heading">Accept your invitation</h2>
+      <p class="form-sub">Takes about 60 seconds. You'll get access immediately.</p>
+
+      <form id="invite-form">
+        <!-- Honeypot field — hidden from real users, bots fill it -->
+        <div style="position:absolute;left:-9999px;" aria-hidden="true">
+          <label for="bot-field">Don't fill this out</label>
+          <input type="text" id="bot-field" name="bot-field" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first_name" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last_name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="care-for">Who do you provide care for? <span class="optional">(optional)</span></label>
+          <input type="text" id="care-for" name="care_for" placeholder="e.g., My son with autism, my mother with dementia">
+        </div>
+
+        <div class="form-group">
+          <label for="challenge">What paperwork or admin tasks take up most of your time? <span class="optional">(optional)</span></label>
+          <textarea id="challenge" name="challenge" placeholder="e.g., Insurance appeals, organizing medical records, IEP prep..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">Accept Invitation</button>
+
+        <p class="form-footer">
+          Built with your privacy in mind. Your data is stored securely and never shared.
+          <br><a href="/privacy">Privacy statement</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div id="success" class="success-state">
+      <div class="success-icon">✓</div>
+      <h2>You're in.</h2>
+      <p>Welcome to the Hesvara beta. Create your secure account now and you can start uploading documents right away.</p>
+      <a href="https://app.hesvara.com" class="next-step">Create Your Account →</a>
+      <p class="success-sub">You'll set up a password and verify your email — takes about two minutes.</p>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="divider"></div>
+
+    <div class="how-it-works-section">
+      <h2 class="form-heading">How it works</h2>
+      <p class="form-sub">From sign-up to your first session — here's what to expect.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Accept your invitation</h3>
+            <p>Fill out the short form above. You'll get immediate access — no waiting, no approval step.</p>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Create your secure account</h3>
+            <p>Because you'll be uploading real healthcare documents, we take security seriously. You'll set up your account with email verification and multi-factor authentication — an extra step, but an important one to keep your information safe.</p>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Upload a few documents</h3>
+            <p>Start with 3–5 documents you already have — insurance letters, medical records, IEPs, denial notices. This is what makes the beta meaningful and lets you see Hesvara working with your real situation.</p>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Explore and tell us what you think</h3>
+            <p>Try the tools. See what's useful, notice what's missing, flag what's confusing. At the end of the beta period, we'll ask for a brief survey or a short call — your honest feedback is the whole point.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="security-note">
+        <div class="security-note-icon">🔒</div>
+        <div>
+          <strong>A note on the extra security steps.</strong> We know creating accounts can feel like a hassle — but caregiving documents contain some of the most sensitive information there is. The authentication steps exist to make sure no one but you can access your data. It takes a few extra minutes upfront so you never have to worry about it after.
+        </div>
+      </div>
+    </div>
+
+    <!-- TRUST -->
+    <div class="trust-line">
+      <span class="trust-item"><span class="icon">🔒</span> Secure infrastructure</span>
+      <span class="trust-item"><span class="icon">🇺🇸</span> U.S.-based servers</span>
+      <span class="trust-item"><span class="icon">🚫</span> Data never sold</span>
+      <span class="trust-item"><span class="icon">🗑</span> Delete anytime</span>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2026 Hesvara &middot; <a href="mailto:hello@hesvara.com">hello@hesvara.com</a> &middot; <a href="/privacy">Privacy</a>
+  </footer>
+
+  <script>
+    // ── Config ──
+    const FUNCTION_URL = 'https://us-central1-hesvara-prod.cloudfunctions.net/acceptBetaInviteHttp';
+
+    document.getElementById('invite-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const btn = document.querySelector('.form-submit');
+      const originalText = btn.textContent;
+      btn.textContent = 'Accepting…';
+      btn.disabled = true;
+
+      const payload = {
+        firstName: document.getElementById('first-name').value.trim(),
+        lastName:  document.getElementById('last-name').value.trim(),
+        email:     document.getElementById('email').value.trim().toLowerCase(),
+        careFor:   document.getElementById('care-for').value.trim() || null,
+        challenge: document.getElementById('challenge').value.trim() || null,
+        source:    'personal_invite',
+      };
+
+      // Honeypot — if a bot filled the hidden field, send it so the function can silently discard
+      const honeypot = document.querySelector('[name="bot-field"]');
+      if (honeypot && honeypot.value) {
+        payload['bot-field'] = honeypot.value;
+      }
+
+      try {
+        const res = await fetch(FUNCTION_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok || res.status === 200) {
+          // Success — show confirmation and link to app
+          document.getElementById('form-section').style.display = 'none';
+          document.getElementById('success').classList.add('visible');
+        } else {
+          // Server returned an error
+          const msg = data.error || 'Something went wrong. Please try again.';
+          showFormError(msg);
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }
+      } catch (err) {
+        console.error('Invite submission error:', err);
+        showFormError('Network error — please check your connection and try again.');
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    });
+
+    function showFormError(message) {
+      // Remove any existing error
+      const existing = document.querySelector('.form-error');
+      if (existing) existing.remove();
+
+      const el = document.createElement('p');
+      el.className = 'form-error';
+      el.style.cssText = 'color:#c0392b;font-size:14px;text-align:center;margin-top:12px;padding:10px;background:rgba(192,57,43,0.06);border-radius:6px;';
+      el.textContent = message;
+      document.querySelector('.form-submit').insertAdjacentElement('afterend', el);
+    }
+  </script>
+</body>
+</html>
