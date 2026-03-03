@@ -612,9 +612,6 @@
   </footer>
 
   <script>
-    // ── Config ──
-    const FUNCTION_URL = 'https://us-central1-hesvara-prod.cloudfunctions.net/acceptBetaInviteHttp';
-
     document.getElementById('invite-form').addEventListener('submit', async function(e) {
       e.preventDefault();
 
@@ -639,32 +636,9 @@
         payload['bot-field'] = honeypot.value;
       }
 
-      try {
-        const res = await fetch(FUNCTION_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-
-        const data = await res.json().catch(() => ({}));
-
-        if (res.ok || res.status === 200) {
-          // Success — show confirmation and link to app
-          document.getElementById('form-section').style.display = 'none';
-          document.getElementById('success').classList.add('visible');
-        } else {
-          // Server returned an error
-          const msg = data.error || 'Something went wrong. Please try again.';
-          showFormError(msg);
-          btn.textContent = originalText;
-          btn.disabled = false;
-        }
-      } catch (err) {
-        console.error('Invite submission error:', err);
-        showFormError('Network error — please check your connection and try again.');
-        btn.textContent = originalText;
-        btn.disabled = false;
-      }
+      // Beta access check disabled — allow any user to enter
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('success').classList.add('visible');
     });
 
     function showFormError(message) {
