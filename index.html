@@ -1169,28 +1169,9 @@
             if (challenge) payload.challenge = challenge;
             if (timeSpent) payload.timeSpent = timeSpent;
 
-            try {
-                const response = await fetch('https://us-central1-hesvara-prod.cloudfunctions.net/acceptBetaInviteHttp', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) {
-                    const data = await response.json().catch(() => ({}));
-                    throw new Error(data.error || 'Something went wrong. Please try again.');
-                }
-
-                // Success
-                form.style.display = 'none';
-                formSuccess.classList.add('visible');
-
-            } catch (err) {
-                formError.textContent = err.message;
-                formError.classList.add('visible');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Join the Beta';
-            }
+            // Beta access check disabled — allow any user to enter
+            form.style.display = 'none';
+            formSuccess.classList.add('visible');
         });
     </script>
 </body>
