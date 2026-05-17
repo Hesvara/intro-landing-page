@@ -1235,6 +1235,283 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* === Features in action (scenario cards) === */
+        .feat-section {
+            margin-bottom: 5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.85s forwards;
+        }
+
+        .feat-eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--evergreen);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .feat-eyebrow::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 1px;
+            background: var(--brass);
+        }
+
+        .feat-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-weight: 300;
+            font-size: clamp(2rem, 4.5vw, 2.9rem);
+            line-height: 1.12;
+            color: var(--deep-forest);
+            margin-bottom: 2.75rem;
+            max-width: 720px;
+            letter-spacing: -0.5px;
+        }
+
+        .feat-cards {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .feat-card {
+            display: flex;
+            gap: 1.75rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 90, 69, 0.12);
+            border-radius: 12px;
+            padding: 2rem 1.75rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .feat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px -16px rgba(31, 58, 46, 0.18);
+        }
+
+        .feat-card-text { flex: 1; min-width: 0; }
+
+        .feat-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            margin-bottom: 0.55rem;
+            line-height: 1.3;
+        }
+
+        .feat-card-body {
+            font-size: 0.95rem;
+            color: var(--ink);
+            opacity: 0.85;
+            line-height: 1.6;
+            margin-bottom: 0.95rem;
+        }
+
+        .feat-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+        .feat-tag {
+            background: var(--soft-neutral);
+            color: var(--secondary-text);
+            font-size: 0.625rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .feat-mockup {
+            flex: 0 0 240px;
+            background: var(--gradient-off-white);
+            border: 1px solid var(--soft-neutral);
+            border-radius: 8px;
+            padding: 12px 14px;
+            font-size: 0.75rem;
+        }
+
+        .feat-mockup-header {
+            font-size: 0.625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--evergreen);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--soft-neutral);
+            margin-bottom: 8px;
+        }
+
+        .feat-mockup-meta {
+            font-size: 0.625rem;
+            color: var(--secondary-text);
+            margin-top: 6px;
+        }
+
+        .feat-search {
+            background: #fff;
+            border: 1px solid var(--soft-neutral);
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 0.72rem;
+            color: var(--secondary-text);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .feat-search svg { color: var(--evergreen); flex-shrink: 0; }
+
+        .feat-row {
+            background: #fff;
+            border: 1px solid var(--soft-neutral);
+            border-radius: 6px;
+            padding: 7px 10px;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.72rem;
+            line-height: 1.3;
+            color: var(--ink);
+        }
+
+        .feat-row svg { color: var(--evergreen); flex-shrink: 0; }
+        .feat-row .feat-date {
+            margin-left: auto;
+            font-size: 0.6rem;
+            color: var(--secondary-text);
+            background: var(--gradient-off-white);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .feat-row--accent { border-left: 3px solid var(--evergreen); }
+        .feat-row-text { min-width: 0; line-height: 1.3; }
+        .feat-row-text strong { display: block; font-weight: 700; color: var(--deep-forest); font-size: 0.7rem; }
+        .feat-row-text span { font-size: 0.65rem; color: var(--secondary-text); }
+
+        .feat-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--evergreen);
+            display: block;
+            margin-bottom: 2px;
+        }
+        .feat-label--brass { color: var(--brass); }
+
+        .feat-section-block { margin-top: 8px; }
+        .feat-section-block:first-of-type { margin-top: 0; }
+        .feat-section-block p {
+            font-size: 0.7rem;
+            color: var(--ink);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .feat-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+        .feat-dot--red { background: #C0392B; }
+        .feat-dot--amber { background: var(--brass); }
+        .feat-dot--green { background: var(--evergreen); }
+
+        .feat-arrow {
+            display: flex;
+            justify-content: center;
+            padding: 4px 0;
+            color: var(--evergreen);
+            opacity: 0.55;
+        }
+
+        .feat-member { display: flex; align-items: center; gap: 8px; padding: 5px 0; }
+        .feat-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.5625rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .feat-avatar--evergreen { background: var(--evergreen); }
+        .feat-avatar--slate { background: var(--slate-ink); }
+        .feat-member-info { line-height: 1.25; }
+        .feat-member-name { font-size: 0.7rem; font-weight: 700; color: var(--ink); }
+        .feat-member-role { font-size: 0.6rem; color: var(--secondary-text); }
+
+        .feat-foot {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--soft-neutral);
+            font-size: 0.65rem;
+            color: var(--evergreen);
+            font-weight: 600;
+        }
+        .feat-foot--muted { color: var(--secondary-text); }
+        .feat-foot svg { color: var(--evergreen); }
+
+        .feat-pill {
+            display: inline-block;
+            background: var(--soft-neutral);
+            color: var(--deep-forest);
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 6px;
+        }
+
+        .feat-recipient {
+            background: #fff;
+            border: 1px solid var(--soft-neutral);
+            border-radius: 6px;
+            padding: 8px 10px;
+            margin-top: 6px;
+        }
+        .feat-recipient--active { border-left: 3px solid var(--evergreen); }
+        .feat-recipient-name {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+        }
+        .feat-recipient-meta {
+            font-size: 0.625rem;
+            color: var(--secondary-text);
+            margin-top: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .feat-card { flex-direction: column; align-items: stretch; gap: 1.25rem; }
+            .feat-mockup { flex: 1 1 auto; width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -1474,7 +1751,162 @@
                 <a href="/platform.html" class="secondary-button">Explore the platform</a>
             </div>
         </section>
-        
+
+        <!-- Features in action -->
+        <section class="feat-section" aria-labelledby="feat-title">
+            <span class="feat-eyebrow">What Hesvara does</span>
+            <h2 id="feat-title" class="feat-title">What this looks like in your day</h2>
+
+            <div class="feat-cards">
+
+                <!-- Card 1: Search across years of records -->
+                <article class="feat-card">
+                    <div class="feat-card-text">
+                        <h3 class="feat-card-title">Search across years of records</h3>
+                        <p class="feat-card-body">Type "incidents of fatigue" and get a school nurse note from 2023, an IEP accommodation from 2024, and a doctor's visit summary from last month, all in one result.</p>
+                        <div class="feat-tags"><span class="feat-tag">CaseFile</span><span class="feat-tag">AI Insights</span></div>
+                    </div>
+                    <div class="feat-mockup" aria-hidden="true">
+                        <div class="feat-mockup-header">
+                            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="4"/><path d="M9 9l3 3"/></svg>
+                            CaseFile search
+                        </div>
+                        <div class="feat-search">
+                            <svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="4"/><path d="M9 9l3 3"/></svg>
+                            incidents of fatigue
+                        </div>
+                        <div class="feat-mockup-meta">3 results across 2+ years</div>
+                        <div class="feat-row">
+                            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1h6l3 3v9a1 1 0 01-1 1H3a1 1 0 01-1-1V2a1 1 0 011-1z"/><path d="M9 1v3h3"/></svg>
+                            School nurse note
+                            <span class="feat-date">Oct 2023</span>
+                        </div>
+                        <div class="feat-row">
+                            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1h6l3 3v9a1 1 0 01-1 1H3a1 1 0 01-1-1V2a1 1 0 011-1z"/><path d="M9 1v3h3"/></svg>
+                            IEP accommodation
+                            <span class="feat-date">Mar 2024</span>
+                        </div>
+                        <div class="feat-row">
+                            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1h6l3 3v9a1 1 0 01-1 1H3a1 1 0 01-1-1V2a1 1 0 011-1z"/><path d="M9 1v3h3"/></svg>
+                            Dr. Patel visit summary
+                            <span class="feat-date">Apr 2026</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2: Walk into appointments prepared -->
+                <article class="feat-card">
+                    <div class="feat-card-text">
+                        <h3 class="feat-card-title">Walk into appointments prepared</h3>
+                        <p class="feat-card-body">CaseMaker generates a one-page prep doc for your next visit, pulling recent Care Log entries, open questions, current medications, and Watchtower reminders into one place. Ready to hand to the doctor.</p>
+                        <div class="feat-tags"><span class="feat-tag">CaseMaker</span><span class="feat-tag">Care Log</span><span class="feat-tag">Watchtower</span></div>
+                    </div>
+                    <div class="feat-mockup" aria-hidden="true">
+                        <div class="feat-mockup-header">
+                            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1h6l3 3v9a1 1 0 01-1 1H3a1 1 0 01-1-1V2a1 1 0 011-1z"/><path d="M5 6h5M5 8h5M5 10h3"/></svg>
+                            Dr. Reyes &middot; May 22
+                            <span class="feat-pill" style="margin-left:auto;">Draft ready</span>
+                        </div>
+                        <div class="feat-section-block">
+                            <span class="feat-label">Recent activity</span>
+                            <p>Sleep disturbances logged 4x this month</p>
+                        </div>
+                        <div class="feat-section-block">
+                            <span class="feat-label">Open questions</span>
+                            <p>Medication interaction concern</p>
+                        </div>
+                        <div class="feat-section-block">
+                            <span class="feat-label feat-label--brass">Reminder</span>
+                            <p>Refill due before visit</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3: Deadlines surface themselves -->
+                <article class="feat-card">
+                    <div class="feat-card-text">
+                        <h3 class="feat-card-title">Deadlines surface themselves</h3>
+                        <p class="feat-card-body">When AI Insights reads a document and finds a date (an appeal deadline, a renewal window, an authorization expiration), it shows up in Watchtower without you lifting a finger.</p>
+                        <div class="feat-tags"><span class="feat-tag">AI Insights</span><span class="feat-tag">Watchtower</span></div>
+                    </div>
+                    <div class="feat-mockup" aria-hidden="true">
+                        <div class="feat-mockup-meta">Extracted from Medicare denial</div>
+                        <div class="feat-row">
+                            <span class="feat-dot feat-dot--red"></span>
+                            <div class="feat-row-text">
+                                <strong>Appeal deadline</strong>
+                                <span>5 days left</span>
+                            </div>
+                        </div>
+                        <div class="feat-arrow">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 2v10M3 8l4 4 4-4"/></svg>
+                        </div>
+                        <div class="feat-row feat-row--accent">
+                            <div class="feat-row-text">
+                                <span class="feat-label">Added to Watchtower</span>
+                                <strong>Medicare appeal: home health PT</strong>
+                                <span>Due May 18</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4: Siblings share one care record -->
+                <article class="feat-card">
+                    <div class="feat-card-text">
+                        <h3 class="feat-card-title">Siblings share one care record</h3>
+                        <p class="feat-card-body">Invite your brother to Mom's CaseFile. Both of you see the same documents, the same Watchtower deadlines, the same Care Log. No more "did you call the insurance company?"</p>
+                        <div class="feat-tags"><span class="feat-tag">Care team</span><span class="feat-tag">CaseFile</span></div>
+                    </div>
+                    <div class="feat-mockup" aria-hidden="true">
+                        <div class="feat-mockup-header">
+                            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="5" cy="5" r="2"/><path d="M1 12c0-2 2-3.5 4-3.5s4 1.5 4 3.5"/><circle cx="10" cy="4" r="1.5"/><path d="M9 9c1 .3 4 1 4 3"/></svg>
+                            Margaret Chen's care team
+                        </div>
+                        <div class="feat-member">
+                            <span class="feat-avatar feat-avatar--evergreen">SC</span>
+                            <div class="feat-member-info">
+                                <div class="feat-member-name">Sarah Chen</div>
+                                <div class="feat-member-role">Primary caregiver</div>
+                            </div>
+                        </div>
+                        <div class="feat-member">
+                            <span class="feat-avatar feat-avatar--slate">DC</span>
+                            <div class="feat-member-info">
+                                <div class="feat-member-name">David Chen</div>
+                                <div class="feat-member-role">Care team member</div>
+                            </div>
+                        </div>
+                        <div class="feat-foot">
+                            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l4 4 7-8"/></svg>
+                            Shared CaseFile, Watchtower, Care Log
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5: Manage care across generations -->
+                <article class="feat-card">
+                    <div class="feat-card-text">
+                        <h3 class="feat-card-title">Manage care across generations</h3>
+                        <p class="feat-card-body">Sandwich generation caregivers switch between CaseFiles. Your child's IEP accommodations in one, your parent's Medicare appeals in another. Same account, same workflow, different people.</p>
+                        <div class="feat-tags"><span class="feat-tag">CaseFile</span><span class="feat-tag">Multi-recipient</span></div>
+                    </div>
+                    <div class="feat-mockup" aria-hidden="true">
+                        <div class="feat-recipient feat-recipient--active">
+                            <div class="feat-recipient-name">Leo Martinez<span class="feat-pill">Son</span></div>
+                            <div class="feat-recipient-meta">12 docs &middot; IEP focus</div>
+                        </div>
+                        <div class="feat-recipient">
+                            <div class="feat-recipient-name">Rosa Martinez<span class="feat-pill">Mother</span></div>
+                            <div class="feat-recipient-meta">8 docs &middot; Medicare focus</div>
+                        </div>
+                        <div class="feat-foot feat-foot--muted">Same account, separate CaseFiles</div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
         <!-- Benefits -->
         <section class="benefits">
             <h2>Handle the Busy Work So You Can Get Back to Caring</h2>
